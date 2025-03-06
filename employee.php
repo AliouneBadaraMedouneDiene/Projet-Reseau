@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'bdd.php';
 
 // Ajouter un employé
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -26,7 +26,7 @@ if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $stmt = $pdo->prepare("DELETE FROM employees WHERE id = ?");
     $stmt->execute([$id]);
-    header("Location: employees.php"); // Rediriger pour éviter la suppression multiple lors du rafraîchissement
+    header("Location: employee.php"); // Rediriger pour éviter la suppression multiple lors du rafraîchissement
 }
 
 // Récupérer les employés
